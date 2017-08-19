@@ -7,15 +7,41 @@
   <title>Weather app!!!!!</title>
   <link rel='stylesheet' type='text/css' href='./style/reset.css'>
   <link rel='stylesheet' type='text/css' href='./style/style.css'>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 </head>
 <body>
-  <!-- 
+  <!--
     HTML NEEDS
     - input box
+    <form id="submit"><input type="text" id="zipcode" placeholder="Please Enter Zipcode">
+<button class="btn" id="search"> Search </button>
+</form>
     - submit button
     - an element with a unique class, id, or data-attribute
       for each of the weather metrics you want to put on the page.
    -->
+<main>
+<div id='box'>
+
+   <div class='statusbox' id='currentStatus'>
+   <input type="text" id="zipcode" placeholder="Please Enter Zipcode">
+  <button class="btn" id="search"> Search</button>
+
+   <div class='statusbox' id='city'>City </div>
+   <div class='statusbox' id='temperature'>Temperature</div>
+   <div class='statusbox' id='description'>Description </div>
+   </div>
+   <div class='temperaturebox' id='minMax'>
+   <div class='temperaturebox' id='tempTitle'> Today's High</div>
+   <div class='temperaturebox' id='minTemp'>X</div>
+   <div class='temperaturebox' id='tempTitle'> Today's Low</div>
+   <div class='temperaturebox' id='maxTemp'>Y </div>
+   </div>
+   </div>
+   </main>
+
+
   <script src='./src/main.js'></script>
 </body>
 </html>

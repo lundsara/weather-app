@@ -1,4 +1,89 @@
+//worked with Aileen!
+$(document).ready(function() {
 console.log('main.js is connected!');
+
+var city;
+var temperature;
+var description;
+var minTemp;
+var maxTemp;
+
+
+
+
+  var makeCall = function(event){
+    event.preventDefault;
+    console.log('inside makeCall')
+    // select the input value
+    let zip = $('#zipcode').val();
+    console.log(zip);
+
+    // ADD YOUR AJAX CALL HERE FOR RANDOMUSER API
+   let url =`http://api.openweathermap.org/data/2.5/weather?q=${zip},us&units=imperial&appid=6f0a8175dfb9fa9be8bb898270d37390`
+    // $.getJSON(url, function(data){
+    //   //pass the call to the getData function
+    // getData(data)
+    // })
+    $.getJSON(url)
+      .done(function(data) {
+        city= data.name;
+        temperature= data.main.temp;
+        description= data.weather[0].description;
+        minTemp= data.main.temp_min;
+        maxTemp= data.main.temp_max;
+        manipulateDom(city, temperature, description, minTemp, maxTemp)
+      })
+      .fail(function(err) { // if the data doesnt come back
+        console.log(err);
+      })
+  }
+
+
+
+
+
+
+//parses the JSON and assigns data points to variables
+  // .done (function(data)){
+
+
+
+
+   var manipulateDom = function(city, temperature, description, minTemp, maxTemp){
+    $('#weather').html(search)
+    $('#city').html(city)
+    $('#temperature').html(temperature)
+    changeColor();
+    $('#description').html(description)
+    $('#minTemp').html(minTemp)
+    $('#maxTemp').html(maxTemp)
+     }
+ let search= document.querySelector('#search');
+  search.addEventListener('click', makeCall);
+
+
+
+  // var addEventListeners = function(){
+  //   document.getElementById('city').addEventListener('city', makeCall);
+  //   document.getElementById('weather').addEventListener('weather', makeCall);
+  //   document.getElementById('currentTemp').addEventListener('currentTemp', makeCall);
+  //   document.getElementById('description').addEventListener('description', makeCall);
+  //   document.getElementById('minTemp').addEventListener('minTemp', makeCall);
+  //   document.getElementById('maxTemp').addEventListener('maxTemp', makeCall);
+  // }
+
+   function changeColor() {
+    if (temperature < 40) {
+        $('#temperature').css('color', 'blue');
+        }
+
+      else if (temperature > 90){
+        $('#temperature').css('color', 'red');
+         }
+       }
+     })
+
+
 
 /*
 
