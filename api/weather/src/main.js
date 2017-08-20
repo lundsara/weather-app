@@ -20,10 +20,7 @@ var maxTemp;
 
     // ADD YOUR AJAX CALL HERE FOR RANDOMUSER API
    let url =`http://api.openweathermap.org/data/2.5/weather?q=${zip},us&units=imperial&appid=6f0a8175dfb9fa9be8bb898270d37390`
-    // $.getJSON(url, function(data){
-    //   //pass the call to the getData function
-    // getData(data)
-    // })
+
     $.getJSON(url)
       .done(function(data) {
         city= data.name;
@@ -40,15 +37,6 @@ var maxTemp;
 
 
 
-
-
-
-//parses the JSON and assigns data points to variables
-  // .done (function(data)){
-
-
-
-
    var manipulateDom = function(city, temperature, description, minTemp, maxTemp){
     $('#weather').html(search)
     $('#city').html(city)
@@ -62,15 +50,6 @@ var maxTemp;
   search.addEventListener('click', makeCall);
 
 
-
-  // var addEventListeners = function(){
-  //   document.getElementById('city').addEventListener('city', makeCall);
-  //   document.getElementById('weather').addEventListener('weather', makeCall);
-  //   document.getElementById('currentTemp').addEventListener('currentTemp', makeCall);
-  //   document.getElementById('description').addEventListener('description', makeCall);
-  //   document.getElementById('minTemp').addEventListener('minTemp', makeCall);
-  //   document.getElementById('maxTemp').addEventListener('maxTemp', makeCall);
-  // }
 
    function changeColor() {
     if (temperature < 40) {
