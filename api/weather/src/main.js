@@ -51,6 +51,7 @@ var maxTemp;
 
 
 
+
    function changeColor() {
     if (temperature < 40) {
         $('#temperature').css('color', 'blue');
